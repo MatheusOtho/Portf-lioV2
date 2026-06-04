@@ -4,16 +4,6 @@ Meu portfólio pessoal desenvolvido com React e Tailwind CSS.
 
 ## 📋 Índice
 
-- [Sobre o Projeto](#sobre-o-projeto)
-- [Tecnologias](#tecnologias)
-- [Preview](#preview)
-- [Instalação](#instalação)
-- [Estrutura](#estrutura)
-- [Customização](#customização)
-- [Contato](#contato)
-
----
-
 ## 📱 Sobre o Projeto
 
 Portfólio responsivo desenvolvido para apresentar meus projetos, habilidades e experiências como desenvolvedor Front-End. O design segue um tema escuro com detalhes em violeta, criando um visual moderno e profissional.
