@@ -5,11 +5,7 @@ const certifications = [
     icon: "fa-code",
     color: "orange",
     courses: [
-      { name: "HTML5 e CSS3", platform: "Alura", year: "2023" },
-      { name: "JavaScript", platform: "Alura", year: "2023" },
-      { name: "React", platform: "Alura", year: "2024" },
-      { name: "Tailwind CSS", platform: "Origamid", year: "2024" },
-      { name: "Bootstrap", platform: "Alura", year: "2024" },
+      // { name: "HTML5 e CSS3", platform: "Alura", year: "2023" },
     ],
   },
   {
@@ -17,10 +13,7 @@ const certifications = [
     icon: "fa-server",
     color: "green",
     courses: [
-      { name: "Java", platform: "Alura", year: "2024" },
-      { name: "Kotlin", platform: "Android Dev", year: "2024" },
-      { name: "Node.js", platform: "Rocketseat", year: "2025" },
-      { name: "Python", platform: "Alura", year: "2025" },
+      // { name: "Kotlin", platform: "Android Dev", year: "2024" },
     ],
   },
   {
@@ -28,10 +21,7 @@ const certifications = [
     icon: "fa-database",
     color: "blue",
     courses: [
-      { name: "SQL", platform: "Alura", year: "2024" },
-      { name: "MySQL", platform: "Curso em Vídeo", year: "2024" },
-      { name: "MongoDB", platform: "Alura", year: "2025" },
-      { name: "PostgreSQL", platform: "Alura", year: "2025" },
+      // { name: "SQL", platform: "Alura", year: "2024" },
     ],
   },
 ];

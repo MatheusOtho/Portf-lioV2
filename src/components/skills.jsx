@@ -5,9 +5,8 @@ import {
   FaJs, 
   FaReact, 
   FaBootstrap, 
-  FaJava 
 } from "react-icons/fa";
-import { SiTailwindcss } from "react-icons/si";
+import { SiTailwindcss, SiPython } from "react-icons/si";
 
 const skills = [
   { name: "HTML5", icon: FaHtml5, color: "text-orange-500" },
@@ -16,14 +15,14 @@ const skills = [
   { name: "React", icon: FaReact, color: "text-cyan-400" },
   { name: "Bootstrap", icon: FaBootstrap, color: "text-purple-600" },
   { name: "Tailwind", icon: SiTailwindcss, color: "text-cyan-500" },
-  { name: "Java", icon: FaJava, color: "text-red-500" },
-];
+  { name: "Python", icon: SiPython, color: "text-green-800" },
+  ];
 
 function Skills() {
   return (
     <section 
       id="skills" 
-      className="py-50 flex flex-col items-center justify-center px-6 py-20 bg-neutral-900/70 text-gray-100 relative overflow-hidden"
+      className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-neutral-900 text-gray-100 relative overflow-hidden"
     >
       {/* Elemento decorativo de fundo */}
       <div className="absolute inset-0 w-full h-full pointer-events-none select-none -z-10">
@@ -32,7 +31,7 @@ function Skills() {
 
       {/* Título da Seção */}
       <div className="mb-4">
-        <span className="text-xs sm:text-sm font-mono text-violet-400">
+        <span className="text-xs sm:text-sm font-mono text-neutral-500">
           &lt;Stacks/&gt;
         </span>
       </div>
@@ -41,31 +40,30 @@ function Skills() {
         Minhas <span className="text-violet-500">Stacks</span>
       </h2>
 
-      <p className="text-neutral-400 text-center max-w-2xl mb-12
-      lg:text-lg">
-        Tecnologias e ferramentas que utilizo no dia a dia para criar interfaces modernas e funcionais.
+      <p className="text-neutral-400 text-center max-w-2xl mb-12">
+        Tecnologias e ferramentas que utilizo no dia a dia.
       </p>
 
       {/* Grid de Stacks */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4 sm:gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 max-w-4xl w-full">
         {skills.map((skill, index) => (
           <div 
             key={index}
-            className="group flex flex-col items-center justify-center p-6 bg-neutral-950/50 border border-neutral-900 rounded-xl hover:border-violet-500 hover:bg-neutral-800 transition-all duration-300 hover:-translate-y-2"
+            className="group flex flex-col items-center justify-center p-4 sm:p-5 lg:p-6 bg-neutral-800/40 border border-neutral-700 rounded-xl hover:border-violet-500 hover:bg-neutral-800 transition-all duration-300 hover:-translate-y-2 cursor-default"
           >
             {/* Ícone */}
-            <div className={`text-4xl sm:text-5xl mb-3 transition-transform duration-300 group-hover:scale-110 ${skill.color}`}>
+            <div className={`text-3xl sm:text-4xl lg:text-4xl mb-2 sm:mb-3 transition-transform duration-300 group-hover:scale-110 ${skill.color}`}>
               <skill.icon />
             </div>
             
             {/* Nome */}
-            <span className="text-sm sm:text-base font-medium text-neutral-300 group-hover:text-white transition-colors">
+            <span className="text-xs sm:text-sm lg:text-base font-medium text-neutral-300 group-hover:text-white transition-colors">
               {skill.name}
             </span>
 
-            {/* Badge "Em aprendizado" para Java */}
-            {skill.name === "Java" && (
-              <span className="mt-2 text-xs px-2 py-0.5 bg-violet-500/20 text-violet-400 rounded-full">
+            {/* Badge "Aprendendo" para Python e Java */}
+            {(skill.name === "Python" || skill.name === "Java") && (
+              <span className="mt-2 text-[10px] sm:text-xs px-2 py-0.5 bg-violet-500/20 text-violet-400 rounded-full">
                 Aprendendo
               </span>
             )}
