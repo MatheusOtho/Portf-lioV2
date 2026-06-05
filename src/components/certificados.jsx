@@ -45,7 +45,7 @@ function Certifications() {
         </span>
       </div>
 
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl text-center text-white mb-4">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl text-center font-bold text-white mb-4">
         Minhas <span className="text-violet-500">Certificações</span>
       </h2>
 
