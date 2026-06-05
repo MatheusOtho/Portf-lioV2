@@ -40,7 +40,7 @@ function Certifications() {
 
       {/* Título da Seção */}
       <div className="mb-4">
-        <span className="text-xs sm:text-sm lg:text-base font-mono text-violet-400">
+        <span className="text-xs sm:text-sm lg:text-base text-center text-violet-400">
           &lt;Certificados/&gt;
         </span>
       </div>
