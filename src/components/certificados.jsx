@@ -30,7 +30,7 @@ function Certifications() {
   return (
     <section 
       id="certifications" 
-      className=" flex flex-col items-center justify-center px-6 py-50 bg-neutral-950 text-gray-100 relative overflow-hidden"
+      className=" flex flex-col items-center justify-center px-6 py-20 bg-neutral-950 text-gray-100 relative overflow-hidden"
     >
       {/* Elementos decorativos de fundo */}
       <div className="absolute inset-0 w-full h-full pointer-events-none select-none -z-10">

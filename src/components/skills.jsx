@@ -22,7 +22,7 @@ function Skills() {
   return (
     <section 
       id="skills" 
-      className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-neutral-900 text-gray-100 relative overflow-hidden"
+      className="py-20 flex flex-col items-center justify-center px-6 py-20 bg-neutral-900 text-gray-100 relative overflow-hidden"
     >
       {/* Elemento decorativo de fundo */}
       <div className="absolute inset-0 w-full h-full pointer-events-none select-none -z-10">
@@ -31,7 +31,7 @@ function Skills() {
 
       {/* Título da Seção */}
       <div className="mb-4">
-        <span className="text-xs sm:text-sm font-mono text-neutral-500">
+        <span className="text-xs sm:text-sm font-mono text-violet-400">
           &lt;Stacks/&gt;
         </span>
       </div>

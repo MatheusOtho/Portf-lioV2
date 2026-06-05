@@ -24,7 +24,7 @@ function Experience() {
   return (
     <section 
       id="experience" 
-      className="py-50 flex flex-col items-center justify-center px-6 bg-neutral-900/70 text-gray-100 relative overflow-hidden"
+      className="py-20 flex flex-col items-center justify-center px-6 bg-neutral-900/70 text-gray-100 relative overflow-hidden"
     >
       {/* Elementos decorativos de fundo */}
       <div className="absolute inset-0 w-full h-full pointer-events-none select-none -z-10">

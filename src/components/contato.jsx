@@ -10,7 +10,7 @@ function Contact() {
   return (
     <section 
       id="contact" 
-      className=" flex flex-col items-center justify-center px-4 sm:px-6 py-50 bg-neutral-900/70 text-gray-100 relative overflow-hidden"
+      className=" flex flex-col items-center justify-center px-4 sm:px-6 py-20 bg-neutral-900/70 text-gray-100 relative overflow-hidden"
     >
       {/* Elementos decorativos */}
       <div className="absolute inset-0 pointer-events-none select-none -z-10">
