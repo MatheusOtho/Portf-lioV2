@@ -15,7 +15,7 @@ const skills = [
   { name: "React", icon: FaReact, color: "text-cyan-400" },
   { name: "Bootstrap", icon: FaBootstrap, color: "text-purple-600" },
   { name: "Tailwind", icon: SiTailwindcss, color: "text-cyan-500" },
-  { name: "Python", icon: SiPython, color: "text-green-800" },
+  { name: "Python", icon: SiPython, color: "text-green-500" },
   ];
 
 function Skills() {
