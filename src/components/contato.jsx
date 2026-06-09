@@ -1,132 +1,178 @@
-// src/components/sections/Contact.jsx
+import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp, FaPaperPlane, FaArrowRight } from "react-icons/fa";
+
 const socials = [
-  { name: "WhatsApp", icon: "fa-whatsapp", color: "#25D366", bg: "bg-green-500", link: "https://wa.me/5582999999999", description: "Enviar mensagem" },
-  { name: "Instagram", icon: "fa-instagram", color: "#E1306C", bg: "bg-pink-500", link: "https://instagram.com/seuusuario", description: "Ver perfil" },
-  { name: "GitHub", icon: "fa-github", color: "#FFFFFF", bg: "bg-white/20", link: "https://github.com/seuusuario", description: "Ver projetos" },
-  { name: "LinkedIn", icon: "fa-linkedin-in", color: "#0A66C2", bg: "bg-blue-500", link: "https://linkedin.com/in/seuusuario", description: "Conectar" },
+  { 
+    name: "WhatsApp", 
+    icon: FaWhatsapp, 
+    color: "#25D366", 
+    bg: "bg-green-500/10",
+    borderColor: "border-green-500/30",
+    description: "Conversar agora",
+    link: "https://wa.me/5511999152699"
+  },
+  { 
+    name: "Instagram", 
+    icon: FaInstagram, 
+    color: "#E1306C", 
+    bg: "bg-pink-500/10",
+    borderColor: "border-pink-500/30",
+    description: "Ver perfil",
+    link: "https://instagram.com/matheusotho"
+  },
+  { 
+    name: "GitHub", 
+    icon: FaGithub, 
+    color: "#FFFFFF", 
+    bg: "bg-white/10",
+    borderColor: "border-white/20",
+    description: "Ver projetos",
+    link: "https://github.com/MatheusOtho"
+  },
+  { 
+    name: "LinkedIn", 
+    icon: FaLinkedin, 
+    color: "#0077B5", 
+    bg: "bg-blue-500/10",
+    borderColor: "border-blue-500/30",
+    description: "Conectar",
+    link: "https://www.linkedin.com/in/matheus-otho/"
+  },
 ];
 
 function Contact() {
   return (
     <section 
       id="contact" 
-      className=" flex flex-col items-center justify-center px-4 sm:px-6 py-20 bg-neutral-900/70 text-gray-100 relative overflow-hidden"
+      className="relative w-full py-20 lg:py-32 flex flex-col items-center justify-center overflow-hidden bg-[#050505] text-gray-100 font-sans"
     >
-      {/* Elementos decorativos */}
-      <div className="absolute inset-0 pointer-events-none select-none -z-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[150px]"></div>
-        <div className="absolute top-0 right-1/4 w-[200px] h-[200px] bg-violet-600/5 rounded-full blur-[80px]"></div>
-        <div className="absolute bottom-0 left-1/4 w-[200px] h-[200px] bg-violet-600/5 rounded-full blur-[80px]"></div>
+      {/* --- FUNDO DINÂMICO --- */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear_gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:4rem_1rem] [mask-image:radial_gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/10 rounded-full mix-blend-screen filter blur-[120px] animate-pulse-slow"></div>
+        <div className="absolute top-0 right-0 w-72 h-72 bg-violet-600/10 rounded-full mix-blend-screen filter blur-[80px] animate-float"></div>
+        <div className="absolute bottom-0 left-0 w-60 h-60 bg-fuchsia-600/10 rounded-full mix-blend-screen filter blur-[60px] animate-float-delayed"></div>
       </div>
 
-      {/* Título da Seção */}
-      <div className="mb-4">
-        <span className="text-xs sm:text-sm lg:text-base font-mono text-violet-400">
-          &lt;Contato/&gt;
-        </span>
-      </div>
+      <div className="container relative z-10 px-6 mx-auto flex flex-col items-center">
 
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-        Vamos <span className="text-violet-500">Conversar?</span>
-      </h2>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 text-center">
+          Vamos <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">Conversar?</span>
+        </h2>
 
-      <p className="text-sm sm:text-base lg:text-lg text-neutral-400 text-center max-w-xl mb-10 lg:mb-12">
-        Estou disponível para oportunidades, parcerias ou apenas para trocar uma ideia.
-      </p>
+        <p className="text-neutral-400 text-center max-w-xl mb-10 sm:mb-12 text-sm sm:text-base">
+          Estou disponível para oportunidades, parcerias ou apenas para trocar uma ideia.
+        </p>
 
-      {/* Container Principal */}
-      <div className="w-full max-w-5xl">
-        
         {/* Email em Destaque */}
-        <div className="text-center mb-10 lg:mb-12 p-6 lg:p-8 bg-neutral-900/60 border border-neutral-800 rounded-2xl hover:border-violet-500/50 transition-all duration-500 group">
-          <p className="text-xs sm:text-sm text-neutral-500 mb-2">Email profissional</p>
-          <a 
-            href="mailto:matheusotho@gmail.com" 
-            className="text-lg sm:text-xl lg:text-2xl font-semibold text-white hover:text-violet-400 transition-all duration-300 inline-flex items-center gap-3 group-hover:gap-4"
-          >
-            matheusotho@gmail.com
-            <i className="fa-regular fa-paper-plane text-violet-500 text-sm lg:text-base opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300"></i>
-          </a>
+        <div className="w-full max-w-2xl mb-12 sm:mb-16">
+          <div className="relative group p-6 sm:p-8 bg-neutral-900/60 border border-neutral-800 rounded-2xl overflow-hidden hover:border-violet-500/50 transition-all duration-500">
+            {/* Glow de fundo */}
+            <div className="absolute inset-0 bg-gradient-to-r from-violet-500/5 via-transparent to-fuchsia-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            <div className="relative flex flex-col sm:flex-row items-center justify-center gap-4">
+              <p className="text-xs sm:text-sm text-neutral-500">Email profissional</p>
+              <a 
+                href="mailto:matheusotho@gmail.com" 
+                className="text-lg sm:text-xl lg:text-2xl font-semibold text-white hover:text-violet-400 transition-all duration-300 inline-flex items-center gap-3 group/link"
+              >
+                matheusotho@gmail.com
+                <FaPaperPlane className="text-violet-400 text-sm lg:text-base opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-300" />
+              </a>
+            </div>
+
+            {/* Barra inferior */}
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-neutral-800">
+              <div className="h-full bg-gradient-to-r from-violet-600 to-fuchsia-600 w-0 group-hover:w-full transition-all duration-500"></div>
+            </div>
+          </div>
         </div>
 
         {/* Título CTA */}
-        <h3 className="text-base lg:text-lg font-medium text-neutral-400 text-center mb-6 lg:mb-8">
+        <h3 className="text-base font-medium text-neutral-500 mb-8">
           — Ou me encontre nas redes —
         </h3>
 
         {/* Grid de Botões Sociais */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-4xl">
           {socials.map((social, index) => (
-            <a
-              key={index}
-              href={social.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative p-4 lg:p-6 bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden hover:border-transparent transition-all duration-500 hover:-translate-y-2"
-            >
-              {/* Background gradiente no hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-neutral-800 to-neutral-900 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              {/* Brilho passando */}
-              <div className="absolute inset-0 overflow-hidden rounded-xl">
-                <div className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:shine transition-all duration-1000"></div>
-              </div>
-
-              {/* Borda colorida */}
-              <div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-[var(--color)] transition-all duration-500" style={{ '--color': social.color }}></div>
-
-              {/* Conteúdo */}
-              <div className="relative flex flex-col items-center">
-                {/* Ícone com fundo */}
-                <div 
-                  className="w-12 h-12 lg:w-14 lg:h-14 flex items-center justify-center rounded-xl mb-3 lg:mb-4 transition-all duration-300 group-hover:scale-110"
-                  style={{ backgroundColor: `${social.color}20` }}
-                >
-                  <i 
-                    className={`fa-brands ${social.icon} text-2xl lg:text-3xl`}
-                    style={{ color: social.color }}
-                  ></i>
-                </div>
-
-                {/* Nome do sociais */}
-                <p className="text-sm lg:text-base font-bold text-white mb-1">
-                  {social.name}
-                </p>
-
-                {/* Descrição */}
-                <p className="text-xs lg:text-sm text-neutral-500 group-hover:text-neutral-400 transition-colors">
-                  {social.description}
-                </p>
-
-                {/* Indicador de seta no hover */}
-                <div className="absolute bottom-3 lg:bottom-4 right-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
-                  <i className="fa-solid fa-arrow-right text-xs" style={{ color: social.color }}></i>
-                </div>
-              </div>
-
-              {/* Efeito glow inferior */}
-              <div 
-                className="absolute bottom-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-all duration-500"
-                style={{ background: `linear-gradient(to right, transparent, ${social.color}, transparent)` }}
-              ></div>
-            </a>
+            <SocialCard key={index} social={social} />
           ))}
         </div>
 
       </div>
 
-      {/* Animação CSS */}
+      {/* Animações CSS */}
       <style>{`
-        @keyframes shine {
-          0% { left: -100%; }
-          100% { left: 200%; }
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+          50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.1); }
         }
-        .group:hover .shine {
-          animation: shine 1s;
+        @keyframes float {
+          0%, 100% { transform: translate(0, 0); }
+          50% { transform: translate(-20px, 20px); }
         }
+        @keyframes float-delayed {
+          0%, 100% { transform: translate(0, 0); }
+          50% { transform: translate(20px, -20px); }
+        }
+        .animate-pulse-slow { animation: pulse-slow 8s ease-in-out infinite; }
+        .animate-float { animation: float 8s ease-in-out infinite; }
+        .animate-float-delayed { animation: float-delayed 10s ease-in-out infinite; }
       `}</style>
     </section>
   );
 }
+
+// Componente Card Separado
+const SocialCard = ({ social }) => {
+  return (
+    <a
+      href={social.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative p-5 sm:p-6 bg-neutral-900/60 border border-neutral-800 rounded-xl overflow-hidden hover:border-violet-500/50 transition-all duration-500 hover:-translate-y-2"
+    >
+      {/* Glow de fundo */}
+      <div className={`absolute inset-0 ${social.bg} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+      
+      {/* Conteúdo */}
+      <div className="relative flex flex-col items-center">
+        {/* Ícone com fundo colorido */}
+        <div 
+          className="w-12 h-12 flex items-center justify-center rounded-xl mb-4 transition-all duration-500 group-hover:scale-110"
+          style={{ backgroundColor: `${social.color}15` }}
+        >
+          <social.icon 
+            className="text-2xl transition-colors duration-300"
+            style={{ color: social.color }}
+          />
+        </div>
+
+        {/* Nome */}
+        <p className="text-base font-bold text-white mb-1">
+          {social.name}
+        </p>
+
+        {/* Descrição */}
+        <p className="text-sm text-neutral-500 group-hover:text-neutral-400 transition-colors">
+          {social.description}
+        </p>
+
+        {/* Seta indicadora */}
+        <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
+          <FaArrowRight 
+            className="text-xs"
+            style={{ color: social.color }}
+          />
+        </div>
+      </div>
+
+      {/* Barra inferior decorativa */}
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-neutral-800">
+        <div className="h-full bg-gradient-to-r from-violet-600 to-fuchsia-600 w-0 group-hover:w-full transition-all duration-500"></div>
+      </div>
+    </a>
+  );
+};
 
 export default Contact;

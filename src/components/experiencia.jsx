@@ -1,22 +1,23 @@
-// src/components/sections/Experience.jsx
+import { FaGraduationCap, FaLaptopCode, FaCode } from "react-icons/fa";
+
 const experiences = [
   {
     year: "2022 - 2025",
     title: "Primeiro Contato com TI",
-    icon: "fa-user",
-    description: "No ensino médio, tive meu primeiro contato com programação através dos cursos da Alura, disponibilizados pelo governo. Lá pude aprender HTML, CSS e JavaScript, e foi aí que nasceu minha paixão pelo desenvolvimento web.",
+    icon: FaCode,
+    description: "No ensino médio, tive meu primeiro contato com programação através dos cursos da Alura. Lá aprendi HTML, CSS e JavaScript, e nasceu minha paixão pelo desenvolvimento web.",
   },
   {
-    year: "2026 - Atualmente",
-    title: "Cursando Ciência da Computação",
-    icon: "fa-graduation-cap",
-    description: "Iniciei meus estudos acadêmicos em Ciência da Computação. Durante esse período, diveglio-me em tecnologias modernas como React, Tailwind CSS e Kotlin, sempre buscando agregar conhecimento teórico com prática.",
+    year: "2025 - Atualmente",
+    title: "Ciência da Computação",
+    icon: FaGraduationCap,
+    description: "Iniciei meus estudos acadêmicos. Durante esse período, aprofundei-me em tecnologias como React, Tailwind CSS e iniciei meus estudos em Python, unindo teoria com prática.",
   },
   {
-    year: "2026 - Atualmente",
-    title: "Projetos como Freelancer",
-    icon: "fa-laptop-code",
-    description: "Após me aprofundar nos estudos, decidi aceitar o desafio de criar soluções digitais reais. Comecei a desenvolver websites e landing pages para clientes, colocando em prática tudo o que aprendi e buscando sempre entregar o melhor resultado.",
+    year: "2025 - Atualmente",
+    title: "Projetos Freelancer",
+    icon: FaLaptopCode,
+    description: "Após me aprofundar nos estudos, decidi criar soluções digitais reais. Desenvolvo websites e landing pages para clientes, colocando em prática tudo o que aprendo.",
   },
 ];
 
@@ -24,77 +25,87 @@ function Experience() {
   return (
     <section 
       id="experience" 
-      className="py-20 flex flex-col items-center justify-center px-6 bg-neutral-900/70 text-gray-100 relative overflow-hidden"
+      className="relative w-full py-20 lg:py-32 flex flex-col items-center justify-center overflow-hidden bg-[#050505] text-gray-100 font-sans"
     >
-      {/* Elementos decorativos de fundo */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none select-none -z-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/5 rounded-full blur-[150px]"></div>
+      {/* --- FUNDO DINÂMICO --- */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear_gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:4rem_1rem] [mask-image:radial_gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/10 rounded-full mix-blend-screen filter blur-[120px] animate-pulse-slow"></div>
       </div>
 
-      {/* Título da Seção */}
-      <div className="mb-4">
-        <span className="text-xs sm:text-sm font-mono text-violet-400">
-          &lt;Experiência/&gt;
-        </span>
-      </div>
+      <div className="container relative z-10 px-6 mx-auto flex flex-col items-center">
+        
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 text-center">
+          Minha <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">Jornada</span>
+        </h2>
 
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-        Minha <span className="text-violet-500">Jornada</span>
-      </h2>
+        <p className="text-neutral-400 text-center max-w-2xl mb-12 text-sm sm:text-base">
+          Um pouco da minha trajetória até aqui.
+        </p>
 
-      <p className="text-neutral-400 text-center max-w-2xl mb-12">
-        Um pouco da minha trajetória até aqui, desde o primeiro contato com código até os projetos atuais.
-      </p>
+        {/* Timeline Vertical */}
+        <div className="relative max-w-3xl w-full">
+          
+          {/* Linha central */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-neutral-800 transform -translate-x-1/2 hidden sm:block"></div>
 
-      {/* Timeline */}
-      <div className="relative max-w-4xl w-full">
-        {/* Linha vertical */}
-        <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-px bg-neutral-800"></div>
+          {/* Cards */}
+          <div className="space-y-8 sm:space-y-12">
+            {experiences.map((exp, index) => (
+              <div 
+                key={index}
+                className={`relative flex items-center sm:justify-between ${
+                  index % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
+                }`}
+              >
+                {/* Ponto na timeline */}
+                <div className="absolute left-0 sm:left-1/2 w-3 h-3 bg-violet-500 rounded-full -translate-x-1/2 z-10 hidden sm:block"></div>
+                
+                {/* Ponto mobile (centralizado) */}
+                <div className="absolute left-0 w-3 h-3 bg-violet-500 rounded-full sm:hidden"></div>
 
-        {/* Cards de Experiência */}
-        <div className="space-y-12">
-          {experiences.map((exp, index) => (
-            <div 
-              key={index}
-              className={`relative flex items-center ${
-                index % 2 === 0 
-                  ? "sm:flex-row" 
-                  : "sm:flex-row-reverse"
-              }`}
-            >
-              {/* Ponto na timeline */}
-              <div className="absolute left-4 sm:left-1/2 w-3 h-3 bg-violet-500 rounded-full -translate-x-1/2 z-10"></div>
+                {/* Card */}
+                <div className="ml-8 sm:ml-0 sm:w-[44%] p-5 sm:p-6 bg-neutral-900/60 border border-neutral-800 rounded-xl hover:border-violet-500/50 hover:bg-neutral-800/80 transition-all duration-500 group">
+                  {/* Ano e Ícone */}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2 text-violet-400">
+                      <exp.icon className="text-sm" />
+                      <span className="text-xs sm:text-sm font-mono font-semibold">{exp.year}</span>
+                    </div>
+                    <exp.icon className="text-xl text-neutral-600 group-hover:text-violet-400 transition-colors" />
+                  </div>
 
-              {/* Espaço vazio para equilibrar o layout */}
-              <div className="hidden sm:block w-1/2"></div>
+                  {/* Título */}
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-violet-400 transition-colors">
+                    {exp.title}
+                  </h3>
 
-              {/* Card */}
-              <div className="ml-8 sm:ml-0 sm:w-[45%] p-6 bg-neutral-800/50 border border-neutral-700 rounded-xl hover:border-violet-500 hover:bg-neutral-800 transition-all duration-300 group">
-                {/* Ano */}
-                <div className="flex items-center gap-2 text-violet-400 mb-3">
-                  <i className="fa-solid fa-calendar text-sm"></i>
-                  <span className="text-sm font-mono font-semibold">{exp.year}</span>
+                  {/* Descrição */}
+                  <p className="text-neutral-400 text-sm leading-relaxed">
+                    {exp.description}
+                  </p>
+
+                  {/* Barra inferior decorativa */}
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-neutral-800">
+                    <div className="h-full bg-gradient-to-r from-violet-600 to-fuchsia-600 w-0 group-hover:w-full transition-all duration-500"></div>
+                  </div>
                 </div>
-
-                {/* Título */}
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-violet-400 transition-colors">
-                  {exp.title}
-                </h3>
-
-                {/* Ícone相关性 */}
-                <div className="flex justify-end mb-2">
-                  <i className={`fa-solid ${exp.icon} text-2xl text-neutral-500 group-hover:text-violet-400 transition-colors`}></i>
-                </div>
-
-                {/* Descrição */}
-                <p className="text-neutral-400 text-sm leading-relaxed">
-                  {exp.description}
-                </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
         </div>
+
       </div>
+
+      {/* Animações CSS */}
+      <style>{`
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+          50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.1); }
+        }
+        .animate-pulse-slow { animation: pulse-slow 8s ease-in-out infinite; }
+      `}</style>
     </section>
   );
 }

@@ -1,43 +1,60 @@
-# 🚀 Portfólio - Matheus Otho
+# Matheus Otho - Portfólio
 
-Meu portfólio pessoal desenvolvido com React e Tailwind CSS.
+## Olá! 👋
 
-## 📋 Índice
+Eu sou **Matheus Otho**, desenvolvedor **Front-End** e acadêmico em **Ciência da Computação**.
 
-## 📱 Sobre o Projeto
-
-Portfólio responsivo desenvolvido para apresentar meus projetos, habilidades e experiências como desenvolvedor Front-End. O design segue um tema escuro com detalhes em violeta, criando um visual moderno e profissional.
+Sou apaixonado por criar interfaces modernas, responsivas e bem estruturadas. Trabalho com as principais tecnologias do mercado atual e busco constantemente evoluir para me tornar um desenvolvedor **Full Stack**.
 
 ---
 
 ## 🛠 Tecnologias
 
-- **React** - Biblioteca principal
-- **Tailwind CSS** - Estilização
-- **React Icons e FontAwesome** - Ícones
-- **JavaScript** - Linguagem
-
-### Stacks Incluídas no Portfólio:
-- HTML5 & CSS3
-- JavaScript (ES6+)
+### Front-End
+- HTML5
+- CSS3
+- JavaScript
 - React
 - Tailwind CSS
 - Bootstrap
-- Java (Em aprendizado)
+
+### Back-End (Estudando)
+- Python
 
 ---
 
-## 🖥 Preview
-- Hero
-Foto, apresentação e botões de ação
-- Skills
-Tecnologias dominationadas
-- Projetos
-Projetos desenvolvidos
-- Experiencia
-Linha do tempo profissional
-- Certificados
-Certificados por categoria
-- Contato
-Redes sociais e email
+## 🚀 Projetos
 
+### Otho Esculturas
+Site institucional para empresa de esculturas.
+
+**Tecnologias:** React, Tailwind, JavaScript
+
+**Links:**
+- Deploy: https://othoesculturas.vercel.app/
+
+---
+
+### Rebeca Nails
+Landing Page para profissional de manicure e pedicure.
+
+**Tecnologias:** React, Tailwind, JavaScript
+
+**Links:**
+- Deploy: https://rebecanails.netlify.app/
+
+---
+
+## 📱 Contato
+
+- **Email:** matheusotho@gmail.com
+- **WhatsApp:** https://wa.me/5582999999999
+- **Instagram:** https://instagram.com/matheusotho
+- **GitHub:** https://github.com/MatheusOtho
+- **LinkedIn:** https://linkedin.com/in/matheusotho
+
+---
+
+## 📄 Currículo
+
+Baixe meu currículo: `/Currículo - Estágio em TI - Matheus Otho.pdf`

@@ -1,4 +1,3 @@
-// src/components/sections/Skills.jsx
 import { 
   FaHtml5, 
   FaCss3, 
@@ -15,61 +14,75 @@ const skills = [
   { name: "React", icon: FaReact, color: "text-cyan-400" },
   { name: "Bootstrap", icon: FaBootstrap, color: "text-purple-600" },
   { name: "Tailwind", icon: SiTailwindcss, color: "text-cyan-500" },
-  { name: "Python", icon: SiPython, color: "text-green-500" },
-  ];
+  { name: "Python", icon: SiPython, color: "text-blue-500" },
+];
 
 function Skills() {
   return (
     <section 
       id="skills" 
-      className="py-20 flex flex-col items-center justify-center px-6 py-20 bg-neutral-900 text-gray-100 relative overflow-hidden"
+      className="relative w-full py-20 lg:py-32 flex flex-col items-center justify-center overflow-hidden bg-[#050505] text-gray-100 font-sans"
     >
-      {/* Elemento decorativo de fundo */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none select-none -z-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/5 rounded-full blur-[150px]"></div>
+      {/* --- FUNDO DINÂMICO --- */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:4rem_1rem] [mask-image:radial_gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
+        <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-violet-600/20 rounded-full mix-blend-screen filter blur-[100px] animate-float"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-60 h-60 bg-blue-600/10 rounded-full mix-blend-screen filter blur-[80px] animate-float-delayed"></div>
       </div>
 
-      {/* Título da Seção */}
-      <div className="mb-4">
-        <span className="text-xs sm:text-sm font-mono text-violet-400">
-          &lt;Stacks/&gt;
-        </span>
-      </div>
+      <div className="container relative z-10 px-6 mx-auto flex flex-col items-center">
+        
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 text-center">
+          Minhas <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">Stacks</span>
+        </h2>
 
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-        Minhas <span className="text-violet-500">Stacks</span>
-      </h2>
+        <p className="text-neutral-400 text-center max-w-2xl mb-12 text-sm sm:text-base">
+          Tecnologias que utilizo no dia a dia.
+        </p>
 
-      <p className="text-neutral-400 text-center max-w-2xl mb-12">
-        Tecnologias e ferramentas que utilizo no dia a dia.
-      </p>
+        {/* Grid de Stacks - Cards Estilizados */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 w-full max-w-4xl">
+          {skills.map((skill, index) => (
+            <div 
+              key={index}
+              className="group relative p-5 sm:p-6 bg-neutral-900/40 border border-neutral-800 rounded-xl overflow-hidden hover:border-violet-500/50 transition-all duration-500 hover:-translate-y-2"
+            >
+              {/* Glow de fundo ao hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              {/* Ícone principal */}
+              <div className={`relative text-4xl sm:text-5xl mb-3 transition-all duration-500 group-hover:scale-110 ${skill.color}`}>
+                <skill.icon />
+              </div>
+              
+              {/* Nome da skill */}
+              <h3 className="relative text-base sm:text-lg font-semibold text-white">
+                {skill.name}
+              </h3>
 
-      {/* Grid de Stacks */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 max-w-4xl w-full">
-        {skills.map((skill, index) => (
-          <div 
-            key={index}
-            className="group flex flex-col items-center justify-center p-4 sm:p-5 lg:p-6 bg-neutral-800/40 border border-neutral-700 rounded-xl hover:border-violet-500 hover:bg-neutral-800 transition-all duration-300 hover:-translate-y-2 cursor-default"
-          >
-            {/* Ícone */}
-            <div className={`text-3xl sm:text-4xl lg:text-4xl mb-2 sm:mb-3 transition-transform duration-300 group-hover:scale-110 ${skill.color}`}>
-              <skill.icon />
+              {/* Barra decorativa na parte inferior */}
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-neutral-800">
+                <div className="h-full bg-gradient-to-r from-violet-600 to-fuchsia-600 w-0 group-hover:w-full transition-all duration-500"></div>
+              </div>
             </div>
-            
-            {/* Nome */}
-            <span className="text-xs sm:text-sm lg:text-base font-medium text-neutral-300 group-hover:text-white transition-colors">
-              {skill.name}
-            </span>
+          ))}
+        </div>
 
-            {/* Badge "Aprendendo" para Python e Java */}
-            {(skill.name === "Python" || skill.name === "Java") && (
-              <span className="mt-2 text-[10px] sm:text-xs px-2 py-0.5 bg-violet-500/20 text-violet-400 rounded-full">
-                Aprendendo
-              </span>
-            )}
-          </div>
-        ))}
       </div>
+
+      {/* Animações CSS */}
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translate(0, 0); }
+          50% { transform: translate(20px, -20px); }
+        }
+        @keyframes float-delayed {
+          0%, 100% { transform: translate(0, 0); }
+          50% { transform: translate(-20px, 20px); }
+        }
+        .animate-float { animation: float 8s ease-in-out infinite; }
+        .animate-float-delayed { animation: float-delayed 10s ease-in-out infinite; }
+      `}</style>
     </section>
   );
 }
