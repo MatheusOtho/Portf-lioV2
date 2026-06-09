@@ -2,7 +2,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 // import { FaGithub } from "react-icons/fa";
 import OthoBanner from "../assets/OthoEsculturas.png";
 import RebecaBanner from "../assets/RebecaNails.png";
-import FiberBanner from "../assets/FiberGlass.png";
+import FiberBanner from "../assets/fiberglass.png";
 
 const projects = [
   {
