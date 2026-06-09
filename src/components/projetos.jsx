@@ -2,7 +2,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 // import { FaGithub } from "react-icons/fa";
 import OthoBanner from "../assets/OthoEsculturas.png";
 import RebecaBanner from "../assets/RebecaNails.png";
-import FiberBanner from "../assets/fiberglass.png";
+// import FiberBanner from "../assets/fiberglass.png";
 
 const projects = [
   {
@@ -19,13 +19,13 @@ const projects = [
     languages: ["React", "Tailwind", "JavaScript"],
     linkDeploy: "https://rebecanails.netlify.app/",
   },
-  {
-    title: "FiberGlass Móveis",
-    description: "Website para empresa de móveis de fibra de vidro. Apresenta catálogo de produtos, informações sobre a empresa e contato.",
-    image: FiberBanner,
-    languages: ["React", "Tailwind", "JavaScript"],
-    linkDeploy: "https://rebecanails.netlify.app/",
-  },
+  // {
+  //   title: "FiberGlass Móveis",
+  //   description: "Website para empresa de móveis de fibra de vidro. Apresenta catálogo de produtos, informações sobre a empresa e contato.",
+  //   image: FiberBanner,
+  //   languages: ["React", "Tailwind", "JavaScript"],
+  //   linkDeploy: "https://rebecanails.netlify.app/",
+  // },
 ];
 
 function Projects() {
