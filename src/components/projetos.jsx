@@ -1,17 +1,17 @@
 import { FaExternalLinkAlt } from "react-icons/fa";
 // import { FaGithub } from "react-icons/fa";
-import OthoBanner from "../assets/OthoEsculturas.png";
+// import OthoBanner from "../assets/OthoEsculturas.png";
 import RebecaBanner from "../assets/RebecaNails.png";
-// import FiberBanner from "../assets/fiberglass.png";
+import FiberBanner from "../assets/fiberglass.png";
 
 const projects = [
-  {
-    title: "Otho Esculturas",
-    description: "Site institucional para empresa de esculturas. Apresenta portfólio de obras, serviços oferecidos e informações sobre a empresa, com diseño limpo e moderno.",
-    image: OthoBanner,
-    languages: ["React", "Tailwind", "JavaScript"],
-    linkDeploy: "https://othoesculturas.vercel.app/",
-  },
+  // {
+  //   title: "Otho Esculturas",
+  //   description: "Site institucional para empresa de esculturas. Apresenta portfólio de obras, serviços oferecidos e informações sobre a empresa, com diseño limpo e moderno.",
+  //   image: OthoBanner,
+  //   languages: ["React", "Tailwind", "JavaScript"],
+  //   linkDeploy: "https://othoesculturas.vercel.app/",
+  // },
   {
     title: "Rebeca Nails",
     description: "Landing Page para profissional de manicure e pedicure. Apresenta serviços, portfólio de trabalhos e informações de contato.",
@@ -19,13 +19,13 @@ const projects = [
     languages: ["React", "Tailwind", "JavaScript"],
     linkDeploy: "https://rebecanails.netlify.app/",
   },
-  // {
-  //   title: "FiberGlass Móveis",
-  //   description: "Website para empresa de móveis de fibra de vidro. Apresenta catálogo de produtos, informações sobre a empresa e contato.",
-  //   image: FiberBanner,
-  //   languages: ["React", "Tailwind", "JavaScript"],
-  //   linkDeploy: "https://rebecanails.netlify.app/",
-  // },
+  {
+    title: "FiberGlass Móveis",
+    description: "Website para empresa de móveis de fibra de vidro. Apresenta catálogo de produtos e suas descrições, informações sobre a empresa e contato.",
+    image: FiberBanner,
+    languages: ["React", "Tailwind", "JavaScript"],
+    linkDeploy: "https://fiberglass-moveis.vercel.app/",
+  },
 ];
 
 function Projects() {
