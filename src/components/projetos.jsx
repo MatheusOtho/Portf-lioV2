@@ -14,7 +14,7 @@ const projects = [
   // },
   {
     title: "Rebeca Nails",
-    description: "Landing Page para profissional de manicure e pedicure. Apresenta serviços, portfólio de trabalhos e informações de contato.",
+    description: "Landing Page para uma profissional de manicure e pedicure. Apresenta serviços, portfólio de trabalhos e informações de contato.",
     image: RebecaBanner,
     languages: ["React", "Tailwind", "JavaScript"],
     linkDeploy: "https://rebecanails.netlify.app/",
