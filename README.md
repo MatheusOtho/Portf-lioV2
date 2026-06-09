@@ -26,7 +26,7 @@ Sou apaixonado por criar interfaces modernas, responsivas e bem estruturadas. Tr
 ## 🚀 Projetos
 
 ### Otho Esculturas
-Site institucional para empresa de esculturas.
+Site para empresa de esculturas.
 
 **Tecnologias:** React, Tailwind, JavaScript
 
