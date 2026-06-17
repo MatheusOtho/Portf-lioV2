@@ -23,28 +23,6 @@ Sou apaixonado por criar interfaces modernas, responsivas e bem estruturadas. Tr
 
 ---
 
-## 🚀 Projetos
-
-### Otho Esculturas
-Site para empresa do ramo de esculturas.
-
-**Tecnologias:** React, Tailwind, JavaScript
-
-**Links:**
-- Deploy: https://othoesculturas.vercel.app/
-
----
-
-### Rebeca Nails
-Landing Page para profissional de manicure e pedicure.
-
-**Tecnologias:** React, Tailwind, JavaScript
-
-**Links:**
-- Deploy: https://rebecanails.netlify.app/
-
----
-
 ## 📱 Contato
 
 - **Email:** matheusotho@gmail.com
