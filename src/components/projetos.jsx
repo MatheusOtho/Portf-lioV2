@@ -17,7 +17,7 @@ const projects = [
     description: "Landing Page para profissional de manicure e pedicure. Apresenta serviços, portfólio de trabalhos e informações de contato.",
     image: RebecaBanner,
     languages: ["React", "Tailwind", "JavaScript"],
-    linkDeploy: "https://fiberglass-moveis.vercel.app/",
+    linkDeploy: "https://rebecanails.vercel.app/",
   },
   {
     title: "FiberGlass Móveis",
