@@ -63,7 +63,7 @@ const Hero = () => {
             <span className="text-white font-semibold">Sou Acadêmico em Ciência da Computação</span> e atualmente sou desenvolvedor <span className="text-white font-semibold">Front-End</span>. 
             <br /><br />
             Atuo com <span className="text-violet-400">HTML, CSS, JavaScript</span> e frameworks como <span className="text-violet-400">React, Tailwind e Bootstrap</span>, criando interfaces modernas, responsivas e com foco em experiência do usuário.
-            Além de estar voltando meus estudos para <span className="text-violet-400">Python</span>
+            Além de estar voltando meus estudos para <span className="text-violet-400">Java</span>
             <br /><br />
             Meu objetivo é evoluir para <span className="text-white font-semibold">Full Stack</span>, unindo design, usabilidade e lógica para desenvolver aplicações completas e escaláveis.
           </p>
