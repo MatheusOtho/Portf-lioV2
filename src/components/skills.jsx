@@ -4,8 +4,9 @@ import {
   FaJs, 
   FaReact, 
   FaBootstrap, 
+  FaJava
 } from "react-icons/fa";
-import { SiTailwindcss, SiPython } from "react-icons/si";
+import { SiTailwindcss} from "react-icons/si";
 
 const skills = [
   { name: "HTML5", icon: FaHtml5, color: "text-orange-500" },
@@ -14,7 +15,7 @@ const skills = [
   { name: "React", icon: FaReact, color: "text-cyan-400" },
   { name: "Bootstrap", icon: FaBootstrap, color: "text-purple-600" },
   { name: "Tailwind", icon: SiTailwindcss, color: "text-cyan-500" },
-  { name: "Python", icon: SiPython, color: "text-blue-500" },
+  { name: "Java", icon: FaJava, color: "text-red-500" }
 ];
 
 function Skills() {

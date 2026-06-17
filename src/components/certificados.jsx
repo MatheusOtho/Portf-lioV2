@@ -20,7 +20,7 @@ const certifications = [
     bgColor: "bg-cyan-500/10",
     borderColor: "border-cyan-500/30",
     courses: [
-      { name: "Python", platform: "DIO", year: "2026" },
+      // { name: "Python", platform: "DIO", year: "2026" },
     ],
   },
   {
@@ -30,7 +30,7 @@ const certifications = [
     bgColor: "bg-blue-500/10",
     borderColor: "border-blue-500/30",
     courses: [
-      { name: "SQL", platform: "DIO", year: "2026" },
+      // { name: "SQL", platform: "DIO", year: "2026" },
     ],
   },
 ];

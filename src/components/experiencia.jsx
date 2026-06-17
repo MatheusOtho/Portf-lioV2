@@ -8,13 +8,13 @@ const experiences = [
     description: "No ensino médio, tive meu primeiro contato com programação através dos cursos da Alura. Lá aprendi HTML, CSS e JavaScript, e nasceu minha paixão pelo desenvolvimento web.",
   },
   {
-    year: "2025 - Atualmente",
+    year: "2026 - Atualmente",
     title: "Ciência da Computação",
     icon: FaGraduationCap,
     description: "Iniciei meus estudos acadêmicos. Durante esse período, aprofundei-me em tecnologias como React, Tailwind CSS e iniciei meus estudos em Python, unindo teoria com prática.",
   },
   {
-    year: "2025 - Atualmente",
+    year: "2026 - Atualmente",
     title: "Projetos Freelancer",
     icon: FaLaptopCode,
     description: "Após me aprofundar nos estudos, decidi criar soluções digitais reais. Desenvolvo websites e landing pages para clientes, colocando em prática tudo o que aprendo.",
