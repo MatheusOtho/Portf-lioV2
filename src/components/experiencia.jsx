@@ -11,7 +11,7 @@ const experiences = [
     year: "2026 - Atualmente",
     title: "Ciência da Computação",
     icon: FaGraduationCap,
-    description: "Iniciei meus estudos acadêmicos. Durante esse período, aprofundei-me em tecnologias como React, Tailwind CSS e iniciei meus estudos em Python, unindo teoria com prática.",
+    description: "Iniciei meus estudos acadêmicos. Durante esse período, aprofundei-me em tecnologias como React, Tailwind CSS e iniciei meus estudos em Java, unindo teoria com prática.",
   },
   {
     year: "2026 - Atualmente",
