@@ -7,6 +7,7 @@ import {
   FaJava
 } from "react-icons/fa";
 import { SiTailwindcss} from "react-icons/si";
+import { motion } from "framer-motion"; // 1. Importação do Framer Motion
 
 const skills = [
   { name: "HTML5", icon: FaHtml5, color: "text-orange-500" },
@@ -19,6 +20,27 @@ const skills = [
 ];
 
 function Skills() {
+  // Variantes para revelar os cards em sequência (Stagger Effect)
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1, // Janela de tempo entre a aparição de cada card
+      },
+    },
+  };
+
+  // Variantes de entrada individual para cada card
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: "easeOut" } 
+    },
+  };
+
   return (
     <section 
       id="skills" 
@@ -33,26 +55,53 @@ function Skills() {
 
       <div className="container relative z-10 px-6 mx-auto flex flex-col items-center">
         
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 text-center">
+        {/* Título animado subindo suavemente ao carregar/scroll */}
+        <motion.h2 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 text-center"
+        >
           Minhas <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">Stacks</span>
-        </h2>
+        </motion.h2>
 
-        <p className="text-neutral-400 text-center max-w-2xl mb-12 text-sm sm:text-base">
+        {/* Subtítulo animado com leve delay */}
+        <motion.p 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-neutral-400 text-center max-w-2xl mb-12 text-sm sm:text-base"
+        >
           Tecnologias que utilizo no dia a dia.
-        </p>
+        </motion.p>
 
-        {/* Grid de Stacks - Cards Estilizados */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 w-full max-w-4xl">
+        {/* Grid de Stacks transformado em motion.div para gerenciar os filhos */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }} // Dispara quando 10% do grid surgir na tela
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 w-full max-w-4xl"
+        >
           {skills.map((skill, index) => (
-            <div 
+            <motion.div 
               key={index}
-              className="group relative p-5 sm:p-6 bg-neutral-900/40 border border-neutral-800 rounded-xl overflow-hidden hover:border-violet-500/50 transition-all duration-500 hover:-translate-y-2"
+              variants={cardVariants}
+              whileHover={{ 
+                y: -8, 
+                borderColor: "rgba(139, 92, 246, 0.5)",
+                backgroundColor: "rgba(23, 23, 23, 0.6)"
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="group relative p-5 sm:p-6 bg-neutral-900/40 border border-neutral-800 rounded-xl overflow-hidden transition-colors duration-300 cursor-default"
             >
-              {/* Glow de fundo ao hover */}
+              {/* Glow de fundo ao hover controlado de forma otimizada */}
               <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
-              {/* Ícone principal */}
-              <div className={`relative text-4xl sm:text-5xl mb-3 transition-all duration-500 group-hover:scale-110 ${skill.color}`}>
+              {/* Ícone principal com efeito hover sutil */}
+              <div className={`relative text-4xl sm:text-5xl mb-3 transition-transform duration-300 group-hover:scale-110 ${skill.color}`}>
                 <skill.icon />
               </div>
               
@@ -65,13 +114,13 @@ function Skills() {
               <div className="absolute bottom-0 left-0 w-full h-1 bg-neutral-800">
                 <div className="h-full bg-gradient-to-r from-violet-600 to-fuchsia-600 w-0 group-hover:w-full transition-all duration-500"></div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
 
-      {/* Animações CSS */}
+      {/* Mantendo os keyframes de fundo nativos */}
       <style>{`
         @keyframes float {
           0%, 100% { transform: translate(0, 0); }

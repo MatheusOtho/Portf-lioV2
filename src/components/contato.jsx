@@ -1,4 +1,5 @@
 import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp, FaPaperPlane, FaArrowRight } from "react-icons/fa";
+import { motion } from "framer-motion"; // 1. Importação do Framer Motion
 
 const socials = [
   { 
@@ -40,6 +41,17 @@ const socials = [
 ];
 
 function Contact() {
+  // Variantes para a sequência das redes sociais
+  const gridVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
   return (
     <section 
       id="contact" 
@@ -47,7 +59,7 @@ function Contact() {
     >
       {/* --- FUNDO DINÂMICO --- */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear_gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:4rem_1rem] [mask-image:radial_gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:4rem_1rem] [mask-image:radial_gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/10 rounded-full mix-blend-screen filter blur-[120px] animate-pulse-slow"></div>
         <div className="absolute top-0 right-0 w-72 h-72 bg-violet-600/10 rounded-full mix-blend-screen filter blur-[80px] animate-float"></div>
         <div className="absolute bottom-0 left-0 w-60 h-60 bg-fuchsia-600/10 rounded-full mix-blend-screen filter blur-[60px] animate-float-delayed"></div>
@@ -55,17 +67,37 @@ function Contact() {
 
       <div className="container relative z-10 px-6 mx-auto flex flex-col items-center">
 
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 text-center">
+        {/* Título com transição suave */}
+        <motion.h2 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 text-center"
+        >
           Vamos <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">Conversar?</span>
-        </h2>
+        </motion.h2>
 
-        <p className="text-neutral-400 text-center max-w-xl mb-10 sm:mb-12 text-sm sm:text-base">
+        {/* Subtítulo */}
+        <motion.p 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="text-neutral-400 text-center max-w-xl mb-10 sm:mb-12 text-sm sm:text-base"
+        >
           Estou disponível para oportunidades, parcerias ou apenas para trocar uma ideia.
-        </p>
+        </motion.p>
 
-        {/* Email em Destaque */}
-        <div className="w-full max-w-2xl mb-12 sm:mb-16">
-          <div className="relative group p-6 sm:p-8 bg-neutral-900/60 border border-neutral-800 rounded-2xl overflow-hidden hover:border-violet-500/50 transition-all duration-500">
+        {/* Email em Destaque com efeito de expansão centralizada */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="w-full max-w-2xl mb-12 sm:mb-16"
+        >
+          <div className="relative group p-6 sm:p-8 bg-neutral-900/60 border border-neutral-800 rounded-2xl overflow-hidden hover:border-violet-500/50 transition-colors duration-300">
             {/* Glow de fundo */}
             <div className="absolute inset-0 bg-gradient-to-r from-violet-500/5 via-transparent to-fuchsia-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
@@ -85,23 +117,35 @@ function Contact() {
               <div className="h-full bg-gradient-to-r from-violet-600 to-fuchsia-600 w-0 group-hover:w-full transition-all duration-500"></div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Título CTA */}
-        <h3 className="text-base font-medium text-neutral-500 mb-8">
+        {/* Separador Textual */}
+        <motion.h3 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          className="text-base font-medium text-neutral-500 mb-8"
+        >
           — Ou me encontre nas redes —
-        </h3>
+        </motion.h3>
 
-        {/* Grid de Botões Sociais */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-4xl">
+        {/* Grid de Redes Sociais integrado ao Framer Motion */}
+        <motion.div 
+          variants={gridVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-4xl"
+        >
           {socials.map((social, index) => (
             <SocialCard key={index} social={social} />
           ))}
-        </div>
+        </motion.div>
 
       </div>
 
-      {/* Animações CSS */}
+      {/* Mantendo os keyframes CSS das esferas de iluminação traseiras */}
       <style>{`
         @keyframes pulse-slow {
           0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
@@ -123,43 +167,59 @@ function Contact() {
   );
 }
 
-// Componente Card Separado
+// Componente Card de Rede Social com animação e tratamento físico via Motion
 const SocialCard = ({ social }) => {
+  const cardItemVariants = {
+    hidden: { opacity: 0, y: 25 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: "easeOut" } 
+    }
+  };
+
   return (
-    <a
+    <motion.a
+      variants={cardItemVariants}
+      whileHover={{ 
+        y: -6,
+        borderColor: "rgba(139, 92, 246, 0.4)",
+        boxShadow: "0 15px 30px -10px rgba(0,0,0,0.5)"
+      }}
+      whileTap={{ scale: 0.98 }}
       href={social.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative p-5 sm:p-6 bg-neutral-900/60 border border-neutral-800 rounded-xl overflow-hidden hover:border-violet-500/50 transition-all duration-500 hover:-translate-y-2"
+      className="group relative p-5 sm:p-6 bg-neutral-900/60 border border-neutral-800 rounded-xl overflow-hidden transition-colors duration-300 text-center block"
     >
-      {/* Glow de fundo */}
+      {/* Glow dinâmico de fundo correspondente à marca */}
       <div className={`absolute inset-0 ${social.bg} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
       
-      {/* Conteúdo */}
+      {/* Estrutura interna flex */}
       <div className="relative flex flex-col items-center">
-        {/* Ícone com fundo colorido */}
+        {/* Caixa do Ícone */}
         <div 
-          className="w-12 h-12 flex items-center justify-center rounded-xl mb-4 transition-all duration-500 group-hover:scale-110"
+          className="w-12 h-12 flex items-center justify-center rounded-xl mb-4 transition-transform duration-300 group-hover:scale-105"
           style={{ backgroundColor: `${social.color}15` }}
         >
           <social.icon 
-            className="text-2xl transition-colors duration-300"
+            className="text-2xl"
             style={{ color: social.color }}
           />
         </div>
 
-        {/* Nome */}
+        {/* Nome da plataforma */}
         <p className="text-base font-bold text-white mb-1">
           {social.name}
         </p>
 
-        {/* Descrição */}
-        <p className="text-sm text-neutral-500 group-hover:text-neutral-400 transition-colors">
+        {/* Descrição contextual */}
+        <p className="text-sm text-neutral-500 group-hover:text-neutral-400 transition-colors duration-300">
           {social.description}
         </p>
 
-        {/* Seta indicadora */}
-        <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
+        {/* Seta direcional aparecendo no canto */}
+        <div className="absolute bottom-0 right-0 sm:bottom-4 sm:right-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300">
           <FaArrowRight 
             className="text-xs"
             style={{ color: social.color }}
@@ -167,11 +227,11 @@ const SocialCard = ({ social }) => {
         </div>
       </div>
 
-      {/* Barra inferior decorativa */}
+      {/* Traço gradiente inferior decorativo */}
       <div className="absolute bottom-0 left-0 w-full h-1 bg-neutral-800">
         <div className="h-full bg-gradient-to-r from-violet-600 to-fuchsia-600 w-0 group-hover:w-full transition-all duration-500"></div>
       </div>
-    </a>
+    </motion.a>
   );
 };
 
