@@ -11,6 +11,7 @@ const projects = [
   //   image: OthoBanner,
   //   languages: ["React", "Tailwind", "JavaScript"],
   //   linkDeploy: "https://othoesculturas.vercel.app/",
+  //   status: "concluido",
   // },
   {
     title: "Rebeca Nails",
@@ -18,6 +19,7 @@ const projects = [
     image: RebecaBanner,
     languages: ["React", "Tailwind", "JavaScript"],
     linkDeploy: "https://rebecanails.vercel.app/",
+    status: "concluido", // <-- Novo campo adicionado
   },
   {
     title: "FiberGlass Móveis",
@@ -25,6 +27,7 @@ const projects = [
     image: FiberBanner,
     languages: ["React", "Tailwind", "JavaScript"],
     linkDeploy: "https://fiberglass-moveis.vercel.app/",
+    status: "em_andamento", // <-- Opções: 'concluido', 'em_andamento', 'manutencao'
   },
 ];
 
@@ -79,6 +82,32 @@ function Projects() {
 
 // Componente Card Separado
 const ProjectCard = ({ project }) => {
+  
+  // Função para definir o estilo do Badge com base no status do projeto
+  const getStatusBadge = (status) => {
+    switch (status) {
+      case "concluido":
+        return {
+          text: "Concluído",
+          className: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
+        };
+      case "em_andamento":
+        return {
+          text: "Em Andamento",
+          className: "bg-amber-500/40 text-orange-500 border-amber-500/30",
+        };
+      case "manutencao":
+        return {
+          text: "Manutenção",
+          className: "bg-sky-500/10 text-sky-400 border-sky-500/30",
+        };
+      default:
+        return null;
+    }
+  };
+
+  const badge = getStatusBadge(project.status);
+
   return (
     <div className="group relative bg-neutral-900/60 border border-neutral-800 rounded-xl overflow-hidden hover:border-violet-500/50 transition-all duration-500 hover:-translate-y-2">
       
@@ -92,6 +121,13 @@ const ProjectCard = ({ project }) => {
         {/* Overlay e brilho */}
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-violet-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         <div className="absolute inset-0 bg-violet-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        
+        {/* Badge de Status posicionado sobre a imagem */}
+        {badge && (
+          <span className={`absolute top-4 right-4 z-10 text-xs font-medium px-2.5 py-1 rounded-md border backdrop-blur-sm shadow-sm ${badge.className}`}>
+            {badge.text}
+          </span>
+        )}
       </div>
 
       {/* Conteúdo do Card */}
@@ -120,15 +156,6 @@ const ProjectCard = ({ project }) => {
 
         {/* Links */}
         <div className="flex gap-5">
-          {/* <a 
-            href={project.linkGithub}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors group/link"
-          >
-            <FaGithub className="text-lg transition-transform group-hover/link:scale-110" />
-            <span className="text-sm font-medium">Código</span>
-          </a> */}
           <a 
             href={project.linkDeploy}
             target="_blank"
