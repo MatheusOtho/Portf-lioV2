@@ -6,7 +6,7 @@ import {
   FaBootstrap, 
   FaJava
 } from "react-icons/fa";
-import { SiTailwindcss} from "react-icons/si";
+import { SiTailwindcss } from "react-icons/si";
 import { motion } from "framer-motion";
 
 const skills = [
@@ -16,27 +16,26 @@ const skills = [
   { name: "React", icon: FaReact, color: "text-cyan-400" },
   { name: "Bootstrap", icon: FaBootstrap, color: "text-purple-600" },
   { name: "Tailwind", icon: SiTailwindcss, color: "text-cyan-500" },
-  // 1. Adicionada a propriedade status para identificar o aprendizado
   { name: "Java", icon: FaJava, color: "text-red-500", status: "Estudando" }
 ];
 
 function Skills() {
+  // Variantes do container principal (Stagger effect)
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.06 },
     },
   };
 
+  // Variantes de entrada dos cards individuais
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
       y: 0, 
-      transition: { duration: 0.5, ease: "easeOut" } 
+      transition: { type: "spring", stiffness: 100, damping: 15 } 
     },
   };
 
@@ -45,21 +44,35 @@ function Skills() {
       id="skills" 
       className="relative w-full py-20 lg:py-32 flex flex-col items-center justify-center overflow-hidden bg-[#050505] text-gray-100 font-sans"
     >
-      {/* --- FUNDO DINÂMICO --- */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:4rem_1rem] [mask-image:radial_gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
-        <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-violet-600/20 rounded-full mix-blend-screen filter blur-[100px] animate-float"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-60 h-60 bg-blue-600/10 rounded-full mix-blend-screen filter blur-[80px] animate-float-delayed"></div>
+      {/* --- FUNDO DINÂMICO (Animações migradas para Framer Motion para melhor performance) --- */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f1f23_1px,transparent_1px),linear-gradient(to_bottom,#1f1f23_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial_gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-25"></div>
+        
+        {/* Orbe Violeta Superior */}
+        <motion.div 
+          animate={{ x: [0, 15, 0], y: [0, -15, 0] }}
+          transition={{ duration: 8, ease: "easeInOut", repeat: Infinity }}
+          style={{ transformPerspective: 1000, backfaceVisibility: "hidden" }}
+          className="absolute top-1/3 left-1/4 w-80 h-80 bg-violet-600/10 rounded-full mix-blend-screen filter blur-[120px]"
+        />
+        
+        {/* Orbe Azul Inferior */}
+        <motion.div 
+          animate={{ x: [0, -15, 0], y: [0, 15, 0] }}
+          transition={{ duration: 10, ease: "easeInOut", repeat: Infinity }}
+          style={{ transformPerspective: 1000, backfaceVisibility: "hidden" }}
+          className="absolute bottom-1/3 right-1/4 w-60 h-60 bg-blue-600/5 rounded-full mix-blend-screen filter blur-[100px]"
+        />
       </div>
 
       <div className="container relative z-10 px-6 mx-auto flex flex-col items-center">
         
         <motion.h2 
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 text-center"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ type: "spring", stiffness: 100, damping: 12 }}
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 text-center tracking-tight"
         >
           Minhas <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">Stacks</span>
         </motion.h2>
@@ -68,12 +81,13 @@ function Skills() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-neutral-400 text-center max-w-2xl mb-12 text-sm sm:text-base"
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="text-neutral-500 text-center max-w-2xl mb-16 text-sm sm:text-base font-light tracking-wide"
         >
           Tecnologias que utilizo no dia a dia.
         </motion.p>
 
+        {/* Grid Container */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -86,51 +100,51 @@ function Skills() {
               key={index}
               variants={cardVariants}
               whileHover={{ 
-                y: -8, 
-                borderColor: "rgba(139, 92, 246, 0.5)",
-                backgroundColor: "rgba(23, 23, 23, 0.6)"
+                y: -6, 
+                borderColor: skill.status ? "rgba(245, 158, 11, 0.35)" : "rgba(139, 92, 246, 0.35)",
+                backgroundColor: "rgba(18, 18, 18, 0.75)",
+                transition: { type: "spring", stiffness: 300, damping: 20 }
               }}
-              whileTap={{ scale: 0.98 }}
-              className="group relative p-5 sm:p-6 bg-neutral-900/40 border border-neutral-800 rounded-xl overflow-hidden transition-colors duration-300 cursor-default"
+              whileTap={{ scale: 0.97 }}
+              className="group relative p-5 sm:p-6 bg-neutral-900/30 border border-neutral-800/80 rounded-2xl overflow-hidden transition-colors duration-300 cursor-default flex flex-col justify-between min-h-[130px] sm:min-h-[140px]"
             >
-              {/* 2. Badge de Status (Renderiza apenas se o status existir) */}
-              {skill.status && (
-                <span className="absolute top-3 right-3 z-20 text-[10px] uppercase tracking-wider font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-md">
-                  {skill.status}
-                </span>
-              )}
-
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              {/* Glow de fundo ao hover */}
+              <div className={`absolute inset-0 bg-gradient-to-br via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
+                skill.status ? "from-amber-500/5" : "from-violet-500/5"
+              }`}></div>
               
-              <div className={`relative text-4xl sm:text-5xl mb-3 transition-transform duration-300 group-hover:scale-110 ${skill.color}`}>
+              {/* Ícone principal com transição suave via CSS do Tailwind */}
+              <div className={`relative text-4xl sm:text-5xl transition-transform duration-300 group-hover:scale-105 w-fit ${skill.color}`}>
                 <skill.icon />
               </div>
               
-              <h3 className="relative text-base sm:text-lg font-semibold text-white">
-                {skill.name}
-              </h3>
+              {/* Bloco de textos na base do card */}
+              <div className="relative z-10 space-y-0.5 mt-4">
+                <h3 className="text-base sm:text-lg font-medium text-neutral-200 tracking-wide">
+                  {skill.name}
+                </h3>
 
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-neutral-800">
-                <div className="h-full bg-gradient-to-r from-violet-600 to-fuchsia-600 w-0 group-hover:w-full transition-all duration-500"></div>
+                {/* Status "Estudando" com pulso mais suave */}
+                {skill.status && (
+                  <div className="flex items-center gap-1.5 pt-0.5 animate-pulse [animation-duration:2s]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-amber-500"></span>
+                    <span className="text-[11px] font-medium tracking-widest text-amber-500/90 uppercase font-mono">
+                      {skill.status}
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {/* Linha decorativa inferior reativa */}
+              <div className="absolute bottom-0 left-0 w-full h-[1.5px] bg-transparent">
+                <div className={`h-full w-0 group-hover:w-full transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1) bg-gradient-to-r ${
+                  skill.status ? "from-amber-500 to-orange-500" : "from-violet-500 to-fuchsia-500"
+                }`}></div>
               </div>
             </motion.div>
           ))}
         </motion.div>
-
       </div>
-
-      <style>{`
-        @keyframes float {
-          0%, 100% { transform: translate(0, 0); }
-          50% { transform: translate(20px, -20px); }
-        }
-        @keyframes float-delayed {
-          0%, 100% { transform: translate(0, 0); }
-          50% { transform: translate(-20px, 20px); }
-        }
-        .animate-float { animation: float 8s ease-in-out infinite; }
-        .animate-float-delayed { animation: float-delayed 10s ease-in-out infinite; }
-      `}</style>
     </section>
   );
 }
